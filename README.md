@@ -13,7 +13,7 @@ To receive credit for this lab, show your work to the TA during recitation.
 
 ## Getting started
 - Ensure Python (preferably 3.8, 3.9, 3.10) and Docker is installed on your machine.
-- Clone the starter code from this [Git repository](#) 
+- Clone the starter code from this [Git repository](https://github.com/tanya-5/mlip-monitoring-lab)
 - Navigate to the folder mlip-monitoring-lab
 - Install required dependencies
     - `pip install -r requirements.txt`
@@ -40,7 +40,7 @@ To receive credit for this lab, show your work to the TA during recitation.
 4. Use the Prometheus dashboard's Graph section to explore metrics. Click on the metrics explorer (earth icon) and search for `request_count_total` to visualize total requests with their status.
 5. Feel free to explore various metrics available in metrics explorer in the table/graph format.
 
-![Prometheus](images/prometheus.png)
+![Prometheus](images/prometheus.PNG)
 
 ## Configure Grafana Dashboard for Visualization
 ### Add Data Source in Grafana
@@ -55,23 +55,23 @@ To receive credit for this lab, show your work to the TA during recitation.
 2. Choose the Prometheus data source you added. Now we will add multiple visualizations(panels) on this dashboard. 
 3. You can use `kick start your query` button to explore different query types. You can also click on `code` to write [PromQL](https://grafana.com/blog/2020/02/04/introduction-to-promql-the-prometheus-query-language/) queries.
 4. Panel 1: Total successful requests - Count the total number of requests with status code 200. 
-   1. Add `request_count_total` as metric, filter label `http_status` and equate to `200`. Make sure that visualization selected is time series. 
-   2. You can see the query generated at the bottom. Alternatively, you can write the query using `code` option.
-   3. Click on run queries and select Apply. You will see the panel added to dashboard. Click save after every panel.
+   - Add `request_count_total` as metric, filter label `http_status` and equate to `200`. Make sure that visualization selected is time series. 
+   - You can see the query generated at the bottom. Alternatively, you can write the query using `code` option.
+   - Click on run queries and select Apply. You will see the panel added to dashboard. Click save after every panel.
    ![Grafana-1](images/grafana-1.png)
    
 5. Panel 2: Total Recommendation Requests Over Time - Total of rate of requests over time (5ms)
-   1. Click on add> visualization. In the queries below, add `request_count_total` as metric. 
-   2. Add operations> range functions > rate  with range 5m
-   3. Add one more operations> aggregations > sum. 
-   4. Visualization should be time series. Run query and Apply. 
+   - Click on add> visualization. In the queries below, add `request_count_total` as metric. 
+   - Add operations> range functions > rate  with range 5m
+   - Add one more operations> aggregations > sum. 
+   - Visualization should be time series. Run query and Apply. 
    ![Grafana-2](images/grafana-2.png)
 
 6. Panel 3: Node CPU usage - Track CPU time consumed in 'system' mode by the node
-   1. HINT: Track rate of `node_cpu_seconds_total`
+   - HINT: Track rate of `node_cpu_seconds_total`
 
 7. Panel 4: Average Request Latency - Average latency for all recommendation requests
-   1. HINT: Use forms of `request_latency_seconds`. Make use of formula for average= sum/count
+   - HINT: Use forms of `request_latency_seconds`. Make use of formula for average= sum/count
 
 
 
